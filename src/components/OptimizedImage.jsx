@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+const placeholderSrc = `${import.meta.env.BASE_URL}placeholder.svg`
+
 export default function OptimizedImage({ src, alt, loading = 'lazy', fetchPriority, ...props }) {
   const [imageSrc, setImageSrc] = useState(src)
 
@@ -10,12 +12,12 @@ export default function OptimizedImage({ src, alt, loading = 'lazy', fetchPriori
   return (
     <img
       {...props}
-      src={imageSrc || '/placeholder.svg'}
+      src={imageSrc || placeholderSrc}
       alt={alt}
       loading={loading}
       decoding="async"
       fetchPriority={fetchPriority}
-      onError={() => setImageSrc('/placeholder.svg')}
+      onError={() => setImageSrc(placeholderSrc)}
     />
   )
 }
