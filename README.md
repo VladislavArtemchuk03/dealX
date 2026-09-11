@@ -1,6 +1,6 @@
 # dealX
 
-## Local запуск
+## Локальний запуск
 
 ```bash
 npm ci
