@@ -1,0 +1,154 @@
+.page {
+  background: var(--bg);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.backBtn,
+.removeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 32px 0;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 52px;
+}
+
+.emptyTitle {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.emptyDescription,
+.listCount,
+.negotiable,
+.itemLocation {
+  color: var(--text-secondary);
+}
+
+.emptyDescription {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.emptyAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin-top: 24px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+.listCount {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.card,
+.cardInner {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
+.cardInner {
+  flex: 1;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.image {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.body {
+  flex: 1;
+  padding: 10px 0;
+}
+
+.itemTitle {
+  margin-bottom: 3px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.itemPrice {
+  margin-bottom: 2px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.negotiable,
+.itemLocation {
+  font-size: 11px;
+}
+
+.itemLocation {
+  margin-top: 3px;
+}
+
+.removeBtn {
+  height: 80px;
+  padding: 0 14px;
+}

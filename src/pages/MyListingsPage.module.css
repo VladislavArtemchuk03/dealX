@@ -1,0 +1,29 @@
+.page { background: var(--bg); min-height: 100vh; padding-bottom: 90px; }
+.header { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.backBtn { background: none; border: none; cursor: pointer; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
+.title { font-size: 17px; font-weight: 600; }
+.headerSpacer { width: 38px; }
+.tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 8px; overflow-x: auto; scrollbar-width: none; }
+.tabBtn { flex-shrink: 0; padding: 11px 10px; background: none; border: none; color: var(--text-secondary); font-size: 12px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; }
+.tabBtn[data-active] { color: var(--accent); border-bottom-color: var(--accent); }
+.list { padding: 0 16px; }
+.empty { text-align: center; padding-top: 80px; }
+.emptyIcon { font-size: 48px; margin-bottom: 12px; }
+.emptyText { font-size: 15px; color: var(--text-secondary); }
+.emptyAction { margin-top: 20px; }
+.card { position: relative; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); margin: 10px 0; overflow: visible; }
+.cardInner { display: flex; align-items: center; width: calc(100% - 44px); background: none; border: none; cursor: pointer; padding: 0; text-align: left; }
+.img { width: 80px; height: 80px; object-fit: cover; border-radius: 12px 0 0 12px; flex-shrink: 0; }
+.info { padding: 10px 12px; flex: 1; min-width: 0; }
+.itemHeader { display: flex; align-items: center; gap: 6px; }
+.itemTitle { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.itemPrice { font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.stats { display: flex; gap: 10px; font-size: 12px; color: var(--text-secondary); }
+.moreBtn { position: absolute; right: 0; top: 0; height: 100%; width: 44px; background: none; border: none; cursor: pointer; color: var(--text-secondary); font-size: 20px; display: flex; align-items: center; justify-content: center; }
+.dropdown { position: absolute; right: 44px; top: 0; background: var(--bg-elevated); border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); z-index: 50; min-width: 180px; overflow: hidden; border: 1px solid var(--border); }
+.dropItem { display: block; width: 100%; padding: 13px 16px; background: none; border: none; cursor: pointer; text-align: left; font-size: 14px; color: #fff; border-bottom: 1px solid var(--border); }
+.dropItem[data-action="resume"] { color: #4caf50; }
+.dropItem[data-action="delete"] { color: var(--danger); }
+.pausedBadge { font-size: 10px; background: rgba(255, 100, 0, 0.15); color: #ff9500; border-radius: 4px; padding: 2px 6px; font-weight: 600; flex-shrink: 0; }
+.newBadge { font-size: 10px; background: rgba(255, 183, 3, 0.15); color: var(--accent); border-radius: 4px; padding: 2px 6px; font-weight: 600; flex-shrink: 0; }
+.bottomAction { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; padding: 16px; background: var(--bg); border-top: 1px solid var(--border); }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
+import styles from './AuthPage.module.css'
 
 export default function AuthPage() {
   const navigate = useNavigate()
@@ -20,7 +21,6 @@ export default function AuthPage() {
     setError('')
     if (!loginForm.email || !loginForm.password) { setError('Заповніть всі поля'); return }
     setLoading(true)
-    await delay(400)
     const result = login(loginForm.email, loginForm.password)
     setLoading(false)
     if (result.error) { setError(result.error); return }
@@ -35,7 +35,6 @@ export default function AuthPage() {
     if (regForm.password.length < 6) { setError('Пароль мінімум 6 символів'); return }
     if (regForm.password !== regForm.confirm) { setError('Паролі не співпадають'); return }
     setLoading(true)
-    await delay(400)
     const result = register(regForm.name, regForm.email, regForm.password)
     setLoading(false)
     if (result.error) { setError(result.error); return }
@@ -47,8 +46,8 @@ export default function AuthPage() {
       {/* Left branding panel — desktop only */}
       <div className="auth-brand">
         <div className="auth-brand-inner">
-          <div className="auth-logo"><span style={{ color: 'var(--accent)' }}>Deal</span>X</div>
-          <div className="auth-tagline">Знайди, що потрібно.<br /><span style={{ color: 'var(--accent)' }}>Продай, що зайве.</span></div>
+          <div className="auth-logo"><span className={styles.accentText}>Deal</span>X</div>
+          <div className="auth-tagline">Знайди, що потрібно.<br /><span className={styles.accentText}>Продай, що зайве.</span></div>
           <div className="auth-desc">Легко, швидко та безпечно. Мільйони оголошень у вашій кишені.</div>
           <div className="auth-features">
             {['🔒 Безпечні угоди', '🚚 Доставка по Україні', '💬 Чат з продавцем', '❤️ Збереження обраного'].map(f => (
@@ -62,7 +61,7 @@ export default function AuthPage() {
       <div className="auth-form-panel">
         <div className="auth-form-inner">
           {/* Mobile logo */}
-          <div className="auth-logo-mobile"><span style={{ color: 'var(--accent)' }}>Deal</span>X</div>
+          <div className="auth-logo-mobile"><span className={styles.accentText}>Deal</span>X</div>
 
           {/* Tabs */}
           <div className="auth-tabs">
@@ -112,7 +111,7 @@ export default function AuthPage() {
               <label className="auth-label">Підтвердження пароля</label>
               <input className="auth-input" type={regForm.show ? 'text' : 'password'} placeholder="Повторіть пароль" value={regForm.confirm} onChange={e => setReg('confirm', e.target.value)} autoComplete="new-password" />
               {regForm.password && regForm.confirm && regForm.password !== regForm.confirm && (
-                <div style={{ fontSize: 12, color: 'var(--danger)', marginTop: -8, marginBottom: 4 }}>Паролі не співпадають</div>
+                <div className={styles.passwordMismatch}>Паролі не співпадають</div>
               )}
               <button type="submit" className="auth-submit" disabled={loading}>
                 {loading ? 'Реєструємо...' : 'Створити акаунт'}
@@ -128,4 +127,3 @@ export default function AuthPage() {
   )
 }
 
-const delay = ms => new Promise(r => setTimeout(r, ms))

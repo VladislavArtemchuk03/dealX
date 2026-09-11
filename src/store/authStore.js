@@ -1,4 +1,3 @@
-// Demo-only auth — passwords stored client-side. Use a backend with bcrypt in production.
 const USERS_KEY = 'dealx_users'
 const SESSION_KEY = 'dealx_session'
 const ADMIN_SESSION_ID = '__dealx_admin__'

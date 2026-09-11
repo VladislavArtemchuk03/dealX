@@ -1,0 +1,2 @@
+.accentText { color: var(--accent); }
+.passwordMismatch { margin-top: -8px; margin-bottom: 4px; color: var(--danger); font-size: 12px; }

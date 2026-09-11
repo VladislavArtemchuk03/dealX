@@ -1,0 +1,163 @@
+.page {
+  background: var(--bg);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.searchInputWrap {
+  position: relative;
+  flex: 1;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.sortRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.resultCount {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.sortControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resetBtn {
+  border: none;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.sortSelect {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  font-size: 13px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.emptyResults {
+  padding-top: 60px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 40px;
+}
+
+.emptyMessage {
+  margin-top: 12px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: left;
+}
+
+.cardLink {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.image {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0;
+}
+
+.itemTitle {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  margin-bottom: 3px;
+  color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  hyphens: auto;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.itemPrice {
+  margin-bottom: 2px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.negotiable,
+.itemLocation {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.itemLocation {
+  margin-top: 3px;
+}
+
+.likeBtn {
+  width: 42px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}

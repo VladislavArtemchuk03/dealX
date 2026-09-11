@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Heart, House, LayoutGrid, MessageCircle, Plus, UserRound } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import OptimizedImage from './OptimizedImage'
+import styles from './SideNav.module.css'
 
 const NAV_ITEMS = [
   { path: '/home', label: 'Головна', icon: House },
@@ -18,7 +19,7 @@ export default function SideNav() {
   return (
     <aside className="side-nav">
       <Link className="side-nav-logo" to="/home">
-        <span style={{ color: 'var(--accent)' }}>Deal</span>X
+        <span className={styles.accentText}>Deal</span>X
       </Link>
 
       <nav className="side-nav-items">
@@ -41,8 +42,8 @@ export default function SideNav() {
         <Link className="side-nav-user" to="/profile">
           <OptimizedImage src={user.avatar} alt={user.name} />
           <div>
-            <div style={{ fontWeight: 600, fontSize: 14 }}>{user.name}</div>
-            <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{user.email}</div>
+            <div className={styles.userName}>{user.name}</div>
+            <div className={styles.userEmail}>{user.email}</div>
           </div>
         </Link>
       )}

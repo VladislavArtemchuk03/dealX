@@ -10,7 +10,7 @@ function loadChats() {
     const savedChats = JSON.parse(localStorage.getItem(CHATS_KEY) || '{}')
     return Object.fromEntries(Object.entries(savedChats).map(([chatId, messages]) => [
       chatId,
-      Array.isArray(messages) ? messages.filter(message => !(String(message.senderId).startsWith('bot-') && message.text === 'test')) : [],
+      Array.isArray(messages) ? messages.filter(message => message.text !== 'test') : [],
     ]))
   } catch {
     return {}
@@ -23,6 +23,7 @@ function getChatId(firstUserId, secondUserId) {
 
 function getChatKey(currentUserId, contact) {
   if (contact.type === 'bot') return `bot:${currentUserId}:${contact.id}`
+  if (contact.type === 'seller') return `seller:${currentUserId}:${contact.id}`
   return `user:${getChatId(currentUserId, contact.id)}`
 }
 

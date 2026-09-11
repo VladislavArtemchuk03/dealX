@@ -1,0 +1,10 @@
+.nav { position: fixed; bottom: 0; left: 50%; z-index: 100; display: flex; align-items: center; width: 100%; max-width: 430px; height: 65px; border-top: 1px solid var(--border); background: var(--bg-elevated); transform: translateX(-50%); }
+.tab, .accentTab { display: flex; flex: 1; align-items: center; justify-content: center; height: 100%; background: transparent; }
+.tab { flex-direction: column; gap: 3px; padding: 6px 0; color: var(--text-secondary); }
+.tab[data-active] { color: var(--accent); }
+.tabIcon { stroke-width: 1.8; }
+.tab[data-active] .tabIcon { stroke-width: 2.25; }
+.accentCircle { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin-top: -20px; border-radius: 50%; background: var(--accent); }
+.accentCircle svg { stroke-width: 2.5; }
+.label { color: var(--text-secondary); font-size: 10px; font-weight: 500; }
+.tab[data-active] .label { color: var(--accent); }

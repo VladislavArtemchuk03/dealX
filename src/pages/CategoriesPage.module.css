@@ -1,0 +1,142 @@
+.page {
+  background: var(--bg);
+}
+
+.header {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.backInline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 16px;
+}
+
+.categoryCard {
+  padding: 18px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.categoryIcon {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.categoryName {
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.categoryCount,
+.resultsCount,
+.emptyResults,
+.negotiable,
+.itemLocation {
+  color: var(--text-secondary);
+}
+
+.categoryCount {
+  font-size: 12px;
+}
+
+.results {
+  padding: 0 16px;
+}
+
+.emptyResults {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.emptyIcon {
+  margin-bottom: 12px;
+  font-size: 40px;
+}
+
+.allCategoriesBtn {
+  margin-top: 20px;
+}
+
+.resultsCount {
+  padding: 12px 0 16px;
+  font-size: 13px;
+}
+
+.listings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  padding-right: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: left;
+}
+
+.listImage {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.listBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+}
+
+.itemTitle {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.itemPrice {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.negotiable,
+.itemLocation {
+  font-size: 11px;
+}

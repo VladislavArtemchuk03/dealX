@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { LISTINGS } from '../data/listings'
 import { getAllUserListings, updateUserListing, deleteUserListing } from '../store/listingsStore'
 import OptimizedImage from '../components/OptimizedImage'
+import styles from './MyListingsPage.module.css'
 
 function buildList() {
   const userOnes = getAllUserListings().map(l => ({ ...l, status: l.paused ? 'paused' : 'active', isUserListing: true }))
@@ -67,66 +68,66 @@ export default function MyListingsPage() {
   }
 
   return (
-    <div style={{ background: 'var(--bg)', minHeight: '100vh', paddingBottom: 90 }}>
+    <div className={styles.page}>
       {/* Header */}
-      <div style={s.header}>
-        <button style={s.backBtn} onClick={() => navigate(-1)}>
+      <div className={styles.header}>
+        <button className={styles.backBtn} onClick={() => navigate(-1)}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
-        <span style={s.title}>Мої оголошення</span>
-        <div style={{ width: 38 }} />
+        <span className={styles.title}>Мої оголошення</span>
+        <div className={styles.headerSpacer} />
       </div>
 
       {/* Tabs */}
-      <div style={s.tabs}>
+      <div className={styles.tabs}>
         {tabs.map(t => (
-          <button key={t.key} style={{ ...s.tabBtn, ...(tab === t.key ? s.tabActive : {}) }} onClick={() => setTab(t.key)}>
+          <button key={t.key} className={styles.tabBtn} data-active={tab === t.key || undefined} onClick={() => setTab(t.key)}>
             {t.label}
           </button>
         ))}
       </div>
 
       {/* List */}
-      <div style={{ padding: '0 16px' }}>
+      <div className={styles.list}>
         {filtered.length === 0 ? (
-          <div style={s.empty}>
-            <div style={{ fontSize: 48, marginBottom: 12 }}>📭</div>
-            <div style={{ fontSize: 15, color: 'var(--text-secondary)' }}>Немає оголошень у цій категорії</div>
-            <button className="btn-primary" style={{ marginTop: 20 }} onClick={() => navigate('/add')}>
+          <div className={styles.empty}>
+            <div className={styles.emptyIcon}>📭</div>
+            <div className={styles.emptyText}>Немає оголошень у цій категорії</div>
+            <button className={`btn-primary ${styles.emptyAction}`} onClick={() => navigate('/add')}>
               + Додати оголошення
             </button>
           </div>
         ) : (
           filtered.map(item => (
-            <div key={item.id} style={s.card}>
-              <button style={s.cardInner} onClick={() => navigate(`/product/${item.id}`)}>
-                <OptimizedImage src={item.images[0]} alt={item.title} style={s.img} />
-                <div style={s.info}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <div style={s.itemTitle}>{item.title}</div>
-                    {item.status === 'paused' && <span style={s.pausedBadge}>⏸ призупинено</span>}
-                    {item.isUserListing && item.status === 'active' && <span style={s.newBadge}>• моє</span>}
+            <div key={item.id} className={styles.card}>
+              <button className={styles.cardInner} onClick={() => navigate(`/product/${item.id}`)}>
+                <OptimizedImage src={item.images[0]} alt={item.title} className={styles.img} />
+                <div className={styles.info}>
+                  <div className={styles.itemHeader}>
+                    <div className={styles.itemTitle}>{item.title}</div>
+                    {item.status === 'paused' && <span className={styles.pausedBadge}>⏸ призупинено</span>}
+                    {item.isUserListing && item.status === 'active' && <span className={styles.newBadge}>• моє</span>}
                   </div>
-                  <div style={s.itemPrice}>{item.price.toLocaleString('uk-UA')} грн</div>
-                  <div style={s.stats}>
+                  <div className={styles.itemPrice}>{item.price.toLocaleString('uk-UA')} грн</div>
+                  <div className={styles.stats}>
                     <span>👁 {item.views}</span>
                     <span>❤️ {item.likes}</span>
                   </div>
                 </div>
               </button>
-              <button style={s.moreBtn} onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === item.id ? null : item.id) }}>
+              <button className={styles.moreBtn} onClick={e => { e.stopPropagation(); setMenuOpen(menuOpen === item.id ? null : item.id) }}>
                 ⋮
               </button>
               {menuOpen === item.id && (
-                <div style={s.dropdown}>
-                  <button style={s.dropItem} onClick={() => handleMenu('view', item)}>👁 Переглянути</button>
-                  {item.isUserListing && <button style={s.dropItem} onClick={() => handleMenu('edit', item)}>✏️ Редагувати</button>}
+                <div className={styles.dropdown}>
+                  <button className={styles.dropItem} onClick={() => handleMenu('view', item)}>👁 Переглянути</button>
+                  {item.isUserListing && <button className={styles.dropItem} onClick={() => handleMenu('edit', item)}>✏️ Редагувати</button>}
                   {item.status !== 'paused'
-                    ? <button style={s.dropItem} onClick={() => handleMenu('pause', item)}>⏸️ Призупинити</button>
-                    : <button style={{ ...s.dropItem, color: '#4caf50' }} onClick={() => handleMenu('resume', item)}>▶️ Відновити</button>
+                    ? <button className={styles.dropItem} onClick={() => handleMenu('pause', item)}>⏸️ Призупинити</button>
+                    : <button className={styles.dropItem} data-action="resume" onClick={() => handleMenu('resume', item)}>▶️ Відновити</button>
                   }
-                  <button style={s.dropItem} onClick={() => handleMenu('promote', item)}>🚀 Підняти в пошуку</button>
-                  <button style={{ ...s.dropItem, color: 'var(--danger)' }} onClick={() => handleMenu('delete', item)}>🗑️ Видалити</button>
+                  <button className={styles.dropItem} onClick={() => handleMenu('promote', item)}>🚀 Підняти в пошуку</button>
+                  <button className={styles.dropItem} data-action="delete" onClick={() => handleMenu('delete', item)}>🗑️ Видалити</button>
                 </div>
               )}
             </div>
@@ -134,30 +135,10 @@ export default function MyListingsPage() {
         )}
       </div>
 
-      <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 430, padding: '16px', background: 'var(--bg)', borderTop: '1px solid var(--border)' }}>
+      <div className={styles.bottomAction}>
         <button className="btn-primary" onClick={() => navigate('/add')}>+ Додати оголошення</button>
       </div>
     </div>
   )
 }
 
-const s = {
-  header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 16px', borderBottom: '1px solid var(--border)' },
-  backBtn: { background: 'none', border: 'none', cursor: 'pointer', width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center' },
-  title: { fontSize: 17, fontWeight: 600 },
-  tabs: { display: 'flex', borderBottom: '1px solid var(--border)', padding: '0 8px', overflowX: 'auto', scrollbarWidth: 'none' },
-  tabBtn: { flexShrink: 0, padding: '11px 10px', background: 'none', border: 'none', color: 'var(--text-secondary)', fontSize: 12, fontWeight: 500, cursor: 'pointer', borderBottom: '2px solid transparent', whiteSpace: 'nowrap' },
-  tabActive: { color: 'var(--accent)', borderBottom: '2px solid var(--accent)' },
-  card: { position: 'relative', background: 'var(--bg-card)', borderRadius: 12, border: '1px solid var(--border)', marginBottom: 10, marginTop: 10, overflow: 'visible' },
-  cardInner: { display: 'flex', alignItems: 'center', width: 'calc(100% - 44px)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left' },
-  img: { width: 80, height: 80, objectFit: 'cover', borderRadius: '12px 0 0 12px', flexShrink: 0 },
-  info: { padding: '10px 12px', flex: 1 },
-  itemTitle: { fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4 },
-  itemPrice: { fontSize: 15, fontWeight: 700, color: 'var(--accent)', marginBottom: 4 },
-  stats: { display: 'flex', gap: 10, fontSize: 12, color: 'var(--text-secondary)' },
-  moreBtn: { position: 'absolute', right: 0, top: 0, height: '100%', width: 44, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', fontSize: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' },
-  dropdown: { position: 'absolute', right: 44, top: 0, background: 'var(--bg-elevated)', borderRadius: 10, boxShadow: '0 4px 20px rgba(0,0,0,0.4)', zIndex: 50, minWidth: 180, overflow: 'hidden', border: '1px solid var(--border)' },
-  dropItem: { display: 'block', width: '100%', padding: '13px 16px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontSize: 14, color: '#fff', borderBottom: '1px solid var(--border)' },
-  pausedBadge: { fontSize: 10, background: 'rgba(255,100,0,0.15)', color: '#ff9500', borderRadius: 4, padding: '2px 6px', fontWeight: 600, flexShrink: 0 },
-  newBadge: { fontSize: 10, background: 'rgba(255,183,3,0.15)', color: 'var(--accent)', borderRadius: 4, padding: '2px 6px', fontWeight: 600, flexShrink: 0 },
-}

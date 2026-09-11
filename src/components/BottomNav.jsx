@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { House, LayoutGrid, MessageCircle, Plus, UserRound } from 'lucide-react'
+import styles from './BottomNav.module.css'
 
 const tabs = [
   { path: '/home', label: 'Головна', icon: House },
@@ -13,7 +14,7 @@ export default function BottomNav() {
   const location = useLocation()
 
   return (
-    <nav style={styles.nav}>
+    <nav className={styles.nav}>
       {tabs.map(({ path, label, icon: Icon, accent }) => {
         const active = location.pathname === path
         return (
@@ -21,16 +22,17 @@ export default function BottomNav() {
             key={path}
             to={path}
             aria-label={label}
-            style={{ ...styles.tab, ...(accent ? styles.accentTab : {}) }}
+            className={accent ? styles.accentTab : styles.tab}
+            data-active={active || undefined}
           >
             {accent ? (
-              <div style={styles.accentCircle}>
-                <Icon aria-hidden="true" size={24} strokeWidth={2.5} />
+              <div className={styles.accentCircle}>
+                <Icon aria-hidden="true" size={24} />
               </div>
             ) : (
               <>
-                <Icon aria-hidden="true" size={22} strokeWidth={active ? 2.25 : 1.8} />
-                <span style={{ ...styles.label, color: active ? 'var(--accent)' : 'var(--text-secondary)' }}>
+                <Icon aria-hidden="true" className={styles.tabIcon} size={22} />
+                <span className={styles.label}>
                   {label}
                 </span>
               </>
@@ -40,55 +42,4 @@ export default function BottomNav() {
       })}
     </nav>
   )
-}
-
-const styles = {
-  nav: {
-    position: 'fixed',
-    bottom: 0,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '100%',
-    maxWidth: 430,
-    backgroundColor: 'var(--bg-elevated)',
-    borderTop: '1px solid var(--border)',
-    display: 'flex',
-    alignItems: 'center',
-    height: 65,
-    zIndex: 100,
-  },
-  tab: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 3,
-    background: 'transparent',
-    color: 'var(--text-secondary)',
-    padding: '6px 0',
-    height: '100%',
-  },
-  accentTab: {
-    flex: 1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: 'transparent',
-    height: '100%',
-  },
-  accentCircle: {
-    width: 48,
-    height: 48,
-    borderRadius: '50%',
-    backgroundColor: 'var(--accent)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: -20,
-  },
-  label: {
-    fontSize: 10,
-    fontWeight: 500,
-  },
 }

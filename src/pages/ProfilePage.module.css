@@ -1,0 +1,25 @@
+.page { background: var(--bg); }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 16px 16px 12px; }
+.headerTitle { color: #fff; font-size: 20px; font-weight: 700; }
+.settingsButton { display: flex; align-items: center; border: none; background: none; cursor: pointer; }
+.userCard { display: flex; align-items: center; gap: 14px; margin: 0 16px 16px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); }
+.avatar { width: 58px; height: 58px; border: 2px solid var(--accent); border-radius: 50%; object-fit: cover; }
+.userInfo { flex: 1; }
+.userName { font-size: 17px; font-weight: 700; }
+.userSince { margin-top: 2px; color: var(--text-secondary); font-size: 12px; }
+.userBio { margin-top: 3px; color: var(--text-secondary); font-size: 12px; }
+.rating { display: flex; align-items: center; gap: 5px; margin-top: 4px; }
+.star { color: var(--star); }
+.ratingValue { font-size: 15px; font-weight: 700; }
+.reviewCount { color: var(--text-secondary); font-size: 13px; }
+.editButton { width: auto; padding: 8px 14px; font-size: 13px; }
+.statsRow { display: flex; overflow: hidden; margin: 0 16px 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); }
+.statItem { flex: 1; padding: 14px 0; border-right: 1px solid var(--border); text-align: center; }
+.statNumber { color: var(--accent); font-size: 20px; font-weight: 800; }
+.statLabel { margin-top: 2px; color: var(--text-secondary); font-size: 11px; }
+.menu { padding: 0 16px; }
+.menuRow { display: flex; align-items: center; gap: 12px; width: 100%; padding: 15px 4px; border: none; border-bottom: 1px solid var(--border); background: none; color: #fff; cursor: pointer; text-align: left; }
+.menuIcon { width: 28px; font-size: 20px; }
+.menuLabel { flex: 1; font-size: 15px; font-weight: 500; }
+.badge { display: flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; color: var(--bg); background: var(--accent); font-size: 11px; font-weight: 700; }
+.logoutRow, .logoutRow .menuLabel { color: var(--danger); }

@@ -1,0 +1,49 @@
+.page { background: var(--bg); min-height: 100vh; padding-bottom: 30px; }
+.notFound { padding: 32px; color: var(--text-secondary); }
+.topBar { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 10; }
+.topActions { display: flex; gap: 12px; }
+.backBtn, .iconBtn { background: rgba(0, 0, 0, 0.4); border: none; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.gallery { position: relative; background: var(--bg-elevated); }
+.mainImg { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.arrowLeft, .arrowRight { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.4); border: none; color: #fff; font-size: 28px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.arrowLeft { left: 10px; }
+.arrowRight { right: 10px; }
+.dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; border: none; cursor: pointer; padding: 0; background: var(--text-secondary); }
+.dot[data-active] { background: var(--accent); }
+.thumbRow { display: flex; gap: 8px; padding: 10px 16px; }
+.thumb { width: 56px; height: 56px; border-radius: 8px; overflow: hidden; padding: 0; cursor: pointer; flex-shrink: 0; border: 2px solid transparent; }
+.thumb[data-active] { border-color: var(--accent); }
+.thumbImage { width: 100%; height: 100%; object-fit: cover; }
+.content { padding: 16px 16px 0; }
+.title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.price { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+.negotiable { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+.location { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; }
+.actions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.sellerCard { display: flex; align-items: center; gap: 12px; background: var(--bg-card); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; width: 100%; border: 1px solid var(--border); cursor: pointer; text-align: left; }
+.avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+.sellerInfo { flex: 1; }
+.sellerName { font-weight: 600; font-size: 15px; }
+.sellerSince { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.rating { display: flex; align-items: center; gap: 4px; margin-top: 3px; }
+.star { color: var(--star); font-size: 14px; }
+.ratingValue { font-size: 13px; font-weight: 600; }
+.reviewCount { font-size: 12px; color: var(--text-secondary); }
+.specsCard { background: var(--bg-card); border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid var(--border); }
+.sectionHeading { font-weight: 600; margin-bottom: 12px; }
+.descriptionHeading { margin-bottom: 10px; }
+.specRow { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.specLabel { font-size: 13px; color: var(--text-secondary); }
+.specVal { font-size: 13px; font-weight: 500; }
+.moreBtn { background: none; border: none; color: var(--accent); font-size: 13px; cursor: pointer; margin-top: 10px; padding: 0; }
+.description { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.stats { display: flex; gap: 16px; font-size: 12px; color: var(--text-secondary); padding: 8px 0 24px; }
+.modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 200; display: flex; align-items: flex-end; max-width: 430px; margin: 0 auto; }
+.modalContent { background: var(--bg-card); border-radius: 16px 16px 0 0; width: 100%; padding: 20px 16px 30px; }
+.modalHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.modalTitle { font-weight: 700; font-size: 16px; }
+.closeModal { background: none; border: none; font-size: 22px; color: var(--text-secondary); cursor: pointer; }
+.deliveryDescription { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
+.deliveryPrice { color: var(--accent); font-weight: 700; }
+.confirmButton { margin-top: 16px; }

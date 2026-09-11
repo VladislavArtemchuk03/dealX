@@ -1,0 +1,3 @@
+.accentText { color: var(--accent); }
+.userName { font-size: 14px; font-weight: 600; }
+.userEmail { color: var(--text-secondary); font-size: 12px; }
