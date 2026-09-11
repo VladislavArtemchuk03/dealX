@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Зображення недоступне">
+  <rect width="800" height="600" fill="#1d2d3d"/>
+  <path d="M170 430l130-150 95 105 75-85 160 130H170z" fill="#30465a"/>
+  <circle cx="535" cy="190" r="48" fill="#ffb703" opacity=".9"/>
+  <text x="400" y="510" fill="#a9b7c5" font-family="Trebuchet MS, sans-serif" font-size="28" text-anchor="middle">Зображення недоступне</text>
+</svg>
