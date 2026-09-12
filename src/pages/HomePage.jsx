@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { CATEGORIES } from '../data/listings'
 import { useFavorites } from '../hooks/useFavorites'
 import { useListings } from '../hooks/useListings'
+import CategoryIcon from '../components/CategoryIcon'
 import OptimizedImage from '../components/OptimizedImage'
 import styles from './HomePage.module.css'
 
@@ -92,7 +93,7 @@ export default function HomePage() {
         <div className={`home-categories ${styles.categoryRow}`}>
           {CATEGORIES.slice(0, 5).map(cat => (
             <Link key={cat.id} className={styles.categoryItem} to="/categories" state={{ cat: cat.name }}>
-              <div className={styles.categoryIcon}>{cat.icon}</div>
+              <CategoryIcon category={cat.name} className={styles.categoryIcon} />
               <span className={styles.categoryLabel}>{cat.name}</span>
             </Link>
           ))}

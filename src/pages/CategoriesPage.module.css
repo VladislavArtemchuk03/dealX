@@ -45,7 +45,7 @@
 
 .categoryIcon {
   margin-bottom: 8px;
-  font-size: 28px;
+  color: var(--accent);
 }
 
 .categoryName {

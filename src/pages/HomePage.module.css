@@ -23,7 +23,7 @@
 .seeAllButton { color: var(--accent); background: none; font-size: 14px; font-weight: 500; }
 .categoryRow { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
 .categoryItem { display: flex; flex-shrink: 0; flex-direction: column; align-items: center; gap: 6px; min-width: 72px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); cursor: pointer; }
-.categoryIcon { font-size: 24px; }
+.categoryIcon { color: var(--accent); }
 .categoryLabel { color: var(--text-secondary); font-size: 11px; text-align: center; white-space: nowrap; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .itemCard { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); cursor: pointer; text-align: left; }

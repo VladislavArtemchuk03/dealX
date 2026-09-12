@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CATEGORIES } from '../data/listings'
 import { getAllListings } from '../store/listingsStore'
+import CategoryIcon from '../components/CategoryIcon'
 import OptimizedImage from '../components/OptimizedImage'
 import styles from './CategoriesPage.module.css'
 
@@ -27,7 +28,7 @@ export default function CategoriesPage() {
         <div className={`categories-grid ${styles.categoryGrid}`}>
           {CATEGORIES.map(cat => (
             <button key={cat.id} className={styles.categoryCard} onClick={() => setSelected(cat.name)}>
-              <div className={styles.categoryIcon}>{cat.icon}</div>
+              <CategoryIcon category={cat.name} className={styles.categoryIcon} size={28} />
               <div className={styles.categoryName}>{cat.name}</div>
               <div className={styles.categoryCount}>{listings.filter(item => item.category === cat.name).length.toLocaleString('uk-UA')} оголошень</div>
             </button>
