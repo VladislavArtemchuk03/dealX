@@ -33,23 +33,21 @@ export default function ProductPage() {
 
   return (
     <div className={styles.dealxProductMain}>
-      {/* Top bar */}
-      <div className={styles.topBar}>
-          <button className={styles.backBtn} onClick={() => navigate(-1)} aria-label="Назад">
-          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
-        </button>
-        <div className={styles.topActions}>
-          <button className={styles.iconBtn} onClick={toggleLike} title="До обраних" aria-label="До обраних">
-            <Heart aria-hidden="true" size={22} fill={isLiked ? 'var(--danger)' : 'none'} stroke={isLiked ? 'var(--danger)' : 'white'} strokeWidth={1.8} />
-          </button>
-          <button className={styles.iconBtn} onClick={handleShare} title="Поділитися" aria-label="Поділитися">
-            <Share2 aria-hidden="true" size={22} strokeWidth={1.8} />
-          </button>
-        </div>
-      </div>
-
       {/* Image gallery */}
       <div className={styles.gallery}>
+        <div className={styles.topBar}>
+          <button className={styles.backBtn} onClick={() => navigate(-1)} aria-label="Назад">
+            <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
+          </button>
+          <div className={styles.topActions}>
+            <button className={styles.iconBtn} onClick={toggleLike} title="До обраних" aria-label="До обраних">
+              <Heart aria-hidden="true" size={22} fill={isLiked ? 'var(--danger)' : 'none'} stroke={isLiked ? 'var(--danger)' : 'white'} strokeWidth={1.8} />
+            </button>
+            <button className={styles.iconBtn} onClick={handleShare} title="Поділитися" aria-label="Поділитися">
+              <Share2 aria-hidden="true" size={22} strokeWidth={1.8} />
+            </button>
+          </div>
+        </div>
         <OptimizedImage src={item.images[activeImage]} alt={item.title} loading="eager" fetchPriority="high" className={styles.mainImg} />
         {item.images.length > 1 && (
           <>

@@ -1,6 +1,6 @@
 .dealxProductMain { background: var(--bg); min-height: 100vh; padding-bottom: 30px; }
 .notFound { padding: 32px; color: var(--text-secondary); }
-.topBar { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 10; }
+.topBar { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; position: absolute; inset: 0 0 auto; z-index: 10; }
 .topActions { display: flex; gap: 12px; }
 .backBtn, .iconBtn { background: rgba(0, 0, 0, 0.4); border: none; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
 .gallery { position: relative; background: var(--bg-elevated); }
