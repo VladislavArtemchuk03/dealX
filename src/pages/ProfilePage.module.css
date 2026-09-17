@@ -1,4 +1,4 @@
-.page { background: var(--bg); }
+.dealxProfileMain { background: var(--bg); }
 .header { display: flex; align-items: center; justify-content: space-between; padding: 16px 16px 12px; }
 .headerTitle { color: #fff; font-size: 20px; font-weight: 700; }
 .settingsButton { display: flex; align-items: center; border: none; background: none; cursor: pointer; }
@@ -9,7 +9,7 @@
 .userSince { margin-top: 2px; color: var(--text-secondary); font-size: 12px; }
 .userBio { margin-top: 3px; color: var(--text-secondary); font-size: 12px; }
 .rating { display: flex; align-items: center; gap: 5px; margin-top: 4px; }
-.star { color: var(--star); }
+.star { color: var(--star); flex-shrink: 0; }
 .ratingValue { font-size: 15px; font-weight: 700; }
 .reviewCount { color: var(--text-secondary); font-size: 13px; }
 .editButton { width: auto; padding: 8px 14px; font-size: 13px; }
@@ -19,7 +19,8 @@
 .statLabel { margin-top: 2px; color: var(--text-secondary); font-size: 11px; }
 .menu { padding: 0 16px; }
 .menuRow { display: flex; align-items: center; gap: 12px; width: 100%; padding: 15px 4px; border: none; border-bottom: 1px solid var(--border); background: none; color: #fff; cursor: pointer; text-align: left; }
-.menuIcon { width: 28px; font-size: 20px; }
+.menuIcon { display: flex; align-items: center; justify-content: center; width: 28px; height: 24px; color: var(--text-secondary); }
+.menuIcon svg { width: 20px; height: 20px; stroke-width: 1.8; }
 .menuLabel { flex: 1; font-size: 15px; font-weight: 500; }
 .badge { display: flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; color: var(--bg); background: var(--accent); font-size: 11px; font-weight: 700; }
-.logoutRow, .logoutRow .menuLabel { color: var(--danger); }
+.logoutRow, .logoutRow .menuLabel, .logoutRow .menuIcon { color: var(--danger); }

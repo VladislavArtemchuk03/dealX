@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AlertTriangle, Heart, LockKeyhole, MessageCircle, Truck } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import styles from './AuthPage.module.css'
 
@@ -50,8 +51,13 @@ export default function AuthPage() {
           <div className="auth-tagline">Знайди, що потрібно.<br /><span className={styles.accentText}>Продай, що зайве.</span></div>
           <div className="auth-desc">Легко, швидко та безпечно. Мільйони оголошень у вашій кишені.</div>
           <div className="auth-features">
-            {['🔒 Безпечні угоди', '🚚 Доставка по Україні', '💬 Чат з продавцем', '❤️ Збереження обраного'].map(f => (
-              <div key={f} className="auth-feature-item">{f}</div>
+            {[
+              { icon: LockKeyhole, label: 'Безпечні угоди' },
+              { icon: Truck, label: 'Доставка по Україні' },
+              { icon: MessageCircle, label: 'Чат з продавцем' },
+              { icon: Heart, label: 'Збереження обраного' },
+            ].map(({ icon: Icon, label }) => (
+              <div key={label} className="auth-feature-item"><Icon aria-hidden="true" size={18} /> {label}</div>
             ))}
           </div>
         </div>
@@ -74,7 +80,7 @@ export default function AuthPage() {
           </div>
 
           {error && (
-            <div className="auth-error">⚠️ {error}</div>
+            <div className="auth-error"><AlertTriangle aria-hidden="true" size={16} /> {error}</div>
           )}
 
           {tab === 'login' ? (
@@ -84,8 +90,8 @@ export default function AuthPage() {
               <label className="auth-label">Пароль</label>
               <div className="auth-input-wrap">
                 <input className="auth-input" type={loginForm.show ? 'text' : 'password'} placeholder="••••••••" value={loginForm.password} onChange={e => setLogin('password', e.target.value)} autoComplete="current-password" />
-                <button type="button" className="auth-eye" onClick={() => setLogin('show', !loginForm.show)}>
-                  {loginForm.show ? '🙈' : '👁'}
+                <button type="button" className="auth-eye" data-visible={loginForm.show || undefined} onClick={() => setLogin('show', !loginForm.show)} aria-label={loginForm.show ? 'Сховати пароль' : 'Показати пароль'}>
+                  <span className="auth-visibility-indicator" />
                 </button>
               </div>
               <button type="submit" className="auth-submit" disabled={loading}>
@@ -104,8 +110,8 @@ export default function AuthPage() {
               <label className="auth-label">Пароль</label>
               <div className="auth-input-wrap">
                 <input className="auth-input" type={regForm.show ? 'text' : 'password'} placeholder="Мінімум 6 символів" value={regForm.password} onChange={e => setReg('password', e.target.value)} autoComplete="new-password" />
-                <button type="button" className="auth-eye" onClick={() => setReg('show', !regForm.show)}>
-                  {regForm.show ? '🙈' : '👁'}
+                <button type="button" className="auth-eye" data-visible={regForm.show || undefined} onClick={() => setReg('show', !regForm.show)} aria-label={regForm.show ? 'Сховати пароль' : 'Показати пароль'}>
+                  <span className="auth-visibility-indicator" />
                 </button>
               </div>
               <label className="auth-label">Підтвердження пароля</label>

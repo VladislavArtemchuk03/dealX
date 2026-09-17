@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Camera, Check, MapPin, X } from 'lucide-react'
 import { CATEGORIES } from '../data/listings'
 import { useAddListing } from '../hooks/useAddListing'
 import OptimizedImage from '../components/OptimizedImage'
@@ -35,11 +36,11 @@ export default function AddListingPage() {
   }
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxAddListingMain}>
       {/* Header */}
       <div className={styles.header}>
         <button className={styles.closeBtn} onClick={() => navigate(-1)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <X aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <span className={styles.headerTitle}>{editId ? 'Редагувати оголошення' : 'Додати оголошення'}</span>
         <button className={styles.draftBtn} onClick={saveDraft}>Зберегти чернетку</button>
@@ -49,7 +50,7 @@ export default function AddListingPage() {
       <div className={styles.stepper}>
         {[1, 2, 3, 4].map(n => (
           <button key={n} className={styles.stepDot} data-current={n === step || undefined} data-complete={n < step || undefined} onClick={() => goToStep(n)} aria-label={`Крок ${n}: ${STEP_LABELS[n - 1]}`} aria-current={n === step ? 'step' : undefined}>
-            {n < step ? '✓' : n}
+            {n < step ? <Check aria-hidden="true" size={16} strokeWidth={2.5} /> : n}
           </button>
         ))}
       </div>
@@ -93,7 +94,7 @@ function Step1({ form, set }) {
       <Field label="Категорія *">
         <select className={styles.input} value={form.category} onChange={e => { set('category', e.target.value); set('subcategory', '') }}>
           <option value="">Оберіть категорію</option>
-          {CATEGORIES.map(c => <option key={c.id} value={c.name}>{c.icon} {c.name}</option>)}
+          {CATEGORIES.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
         </select>
       </Field>
       <Field label="Підкатегорія">
@@ -134,7 +135,7 @@ function Step2({ form, set, handlePhotoAdd, removePhoto }) {
       <div className={styles.photoDescription}>Додайте фото *</div>
       <div className={styles.photoGrid}>
         <label className={styles.photoAdd}>
-          <div className={styles.photoIcon}>📷</div>
+          <Camera className={styles.photoIcon} aria-hidden="true" size={28} />
           <div className={styles.photoAddLabel}>Натисніть, щоб завантажити фото</div>
           <div className={styles.photoHelp}>JPG, PNG до 2 МБ. Мінімум 1 фото, максимум 10</div>
           <input type="file" accept="image/jpeg,image/png,image/webp" multiple={false} onChange={e => handlePhotoAdd(e.target.files?.[0])} className={styles.fileInput} />
@@ -171,7 +172,7 @@ function Step3({ form, set }) {
       <Field label="Місцезнаходження *">
         <div className={styles.inputWithSuffix}>
           <input className={`${styles.input} ${styles.locationInput}`} value={form.location} onChange={e => set('location', e.target.value)} />
-          <span className={styles.locationIcon}>📍</span>
+          <MapPin className={styles.locationIcon} aria-hidden="true" size={16} />
         </div>
       </Field>
       <Field label="Спосіб доставки">

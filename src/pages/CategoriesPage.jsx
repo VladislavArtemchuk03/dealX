@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { ArrowLeft, Search } from 'lucide-react'
 import { CATEGORIES } from '../data/listings'
 import { getAllListings } from '../store/listingsStore'
 import CategoryIcon from '../components/CategoryIcon'
@@ -14,11 +15,11 @@ export default function CategoriesPage() {
   const filtered = selected ? listings.filter(l => l.category === selected) : []
 
   return (
-    <div className={`page categories-page ${styles.page}`}>
+    <div className={`page categories-page ${styles.dealxCategoriesMain}`}>
       <div className={styles.header}>
         <span className={styles.title}>{selected ? (
           <button className={styles.backInline} onClick={() => setSelected(null)}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+            <ArrowLeft aria-hidden="true" size={18} strokeWidth={1.8} />
             {selected}
           </button>
         ) : 'Категорії'}</span>
@@ -38,7 +39,7 @@ export default function CategoriesPage() {
         <div className={`category-results ${styles.results}`}>
           {filtered.length === 0 ? (
             <div className={styles.emptyResults}>
-              <div className={styles.emptyIcon}>🔍</div>
+              <Search className={styles.emptyIcon} aria-hidden="true" size={40} />
               <div>Немає оголошень у цій категорії</div>
               <button className={`btn-primary ${styles.allCategoriesBtn}`} onClick={() => setSelected(null)}>← Всі категорії</button>
             </div>

@@ -1,4 +1,4 @@
-.page { background: var(--bg); }
+.dealxMessagesMain { background: var(--bg); }
 .chatPage { background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }
 .header { padding: 16px 16px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
 .title { font-size: 20px; font-weight: 700; }

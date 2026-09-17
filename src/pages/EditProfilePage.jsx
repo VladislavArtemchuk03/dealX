@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Bell, CheckCircle, ChevronRight, LockKeyhole, MapPin, Pencil, ArrowLeft } from 'lucide-react'
 import { useProfile } from '../hooks/useProfile'
 import { useAuth } from '../hooks/useAuth'
 import OptimizedImage from '../components/OptimizedImage'
@@ -65,11 +66,11 @@ export default function EditProfilePage() {
   const hasChanges = JSON.stringify(form) !== JSON.stringify(initialProfile)
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxEditProfileMain}>
       {/* Header */}
       <div className={styles.header}>
         <button className={styles.backButton} onClick={() => navigate(-1)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <span className={styles.title}>Редагувати профіль</span>
         <div className={styles.headerSpacer} />
@@ -80,7 +81,7 @@ export default function EditProfilePage() {
         <div className={styles.avatarWrap}>
           <OptimizedImage src={form.avatar} alt="Аватар профілю" className={styles.avatar} />
           <button className={styles.avatarEditButton} onClick={() => setShowAvatarPicker(p => !p)}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="var(--bg)" strokeWidth="2" strokeLinecap="round" /><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="var(--bg)" strokeWidth="2" strokeLinecap="round" /></svg>
+            <Pencil aria-hidden="true" size={14} strokeWidth={1.8} />
           </button>
         </div>
         {showAvatarPicker && (
@@ -117,7 +118,7 @@ export default function EditProfilePage() {
         <Field label="Місцезнаходження">
           <div className={styles.locationWrap}>
             <input className={`${styles.input} ${styles.locationInput}`} value={form.location} onChange={e => set('location', e.target.value)} placeholder="Місто" />
-            <span className={styles.locationIcon}>📍</span>
+            <MapPin className={styles.locationIcon} aria-hidden="true" size={16} />
           </div>
         </Field>
 
@@ -125,15 +126,15 @@ export default function EditProfilePage() {
         <div className={styles.sectionLabel}>Безпека</div>
 
         <button className={styles.securityRow} onClick={() => setShowPasswordDialog(true)}>
-          <span className={styles.securityIcon}>🔒</span>
+          <LockKeyhole className={styles.securityIcon} aria-hidden="true" size={18} />
           <span className={styles.securityLabel}>Змінити пароль</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ChevronRight aria-hidden="true" size={14} strokeWidth={1.8} />
         </button>
 
-        <button className={`${styles.securityRow} ${styles.notificationRow}`} onClick={() => alert('Сповіщення налаштовані')}>
-          <span className={styles.securityIcon}>🔔</span>
+        <button className={`${styles.securityRow} ${styles.notificationRow}`} onClick={() => alert('Дана функція у розробці')}>
+          <Bell className={styles.securityIcon} aria-hidden="true" size={18} />
           <span className={styles.securityLabel}>Сповіщення</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ChevronRight aria-hidden="true" size={14} strokeWidth={1.8} />
         </button>
       </div>
 
@@ -141,7 +142,7 @@ export default function EditProfilePage() {
       <div className={styles.saveBar}>
         {saved ? (
           <div className={styles.saveSuccess}>
-            ✅ Збережено!
+            <CheckCircle aria-hidden="true" size={18} /> Збережено!
           </div>
         ) : (
           <button className={`btn-primary ${styles.saveButton}`} onClick={handleSave} disabled={!hasChanges}>

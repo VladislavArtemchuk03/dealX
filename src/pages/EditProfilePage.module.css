@@ -1,4 +1,4 @@
-.page { min-height: 100vh; padding-bottom: 160px; background: var(--bg); }
+.dealxEditProfileMain { min-height: 100vh; padding-bottom: 160px; background: var(--bg); }
 .header { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border); }
 .backButton { display: flex; align-items: center; width: 38px; border: none; background: none; cursor: pointer; }
 .title { flex: 1; font-size: 17px; font-weight: 600; text-align: center; }

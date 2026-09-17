@@ -1,4 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { ArrowLeft, Heart, Search } from 'lucide-react'
 import { useSearch } from '../hooks/useSearch'
 import { useFavorites } from '../hooks/useFavorites'
 import OptimizedImage from '../components/OptimizedImage'
@@ -11,14 +12,14 @@ export default function SearchPage() {
   const { isFavorite, toggleFavorite } = useFavorites()
 
   return (
-    <div className={`page search-page ${styles.page}`}>
+    <div className={`page search-page ${styles.dealxSearchMain}`}>
       {/* Search bar */}
       <div className={styles.searchBar}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <div className={styles.searchInputWrap}>
-          <svg className={styles.searchIcon} width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--text-secondary)" strokeWidth="2" /><path d="M21 21l-4-4" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" /></svg>
+          <Search className={styles.searchIcon} aria-hidden="true" size={16} strokeWidth={1.8} />
           <input
             className={styles.searchInput}
             placeholder="Пошук товарів..."
@@ -39,10 +40,10 @@ export default function SearchPage() {
             </button>
           )}
           <select className={styles.sortSelect} value={sort} onChange={e => setSort(e.target.value)}>
-            <option value="new">Новіші</option>
-            <option value="price_asc">Ціна ↑</option>
-            <option value="price_desc">Ціна ↓</option>
-            <option value="popular">Популярні</option>
+            <option value="new">Нові товари</option>
+            <option value="popular">Популярні товари</option>
+            <option value="price_desc">Дорожчі товари</option>
+            <option value="price_asc">Дешевші товари</option>
           </select>
         </div>
       </div>
@@ -51,7 +52,7 @@ export default function SearchPage() {
       <div className={`search-results ${styles.results}`}>
         {results.length === 0 && (
           <div className={styles.emptyResults}>
-            <div className={styles.emptyIcon}>🔍</div>
+            <Search className={styles.emptyIcon} aria-hidden="true" />
             <div className={styles.emptyMessage}>Нічого не знайдено</div>
           </div>
         )}
@@ -67,7 +68,7 @@ export default function SearchPage() {
               </div>
             </Link>
             <button className={styles.likeBtn} onClick={e => toggleFavorite(item.id, e)}>
-              {isFavorite(item.id) ? '❤️' : '🤍'}
+              <Heart aria-hidden="true" size={20} fill={isFavorite(item.id) ? 'var(--danger)' : 'none'} stroke={isFavorite(item.id) ? 'var(--danger)' : 'currentColor'} />
             </button>
           </div>
         ))}

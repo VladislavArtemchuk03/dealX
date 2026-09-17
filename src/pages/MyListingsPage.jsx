@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ArrowLeft, Eye, Heart, Inbox, Pencil, Pause, Play, Rocket, Trash2 } from 'lucide-react'
 import { LISTINGS } from '../data/listings'
 import { getAllUserListings, updateUserListing, deleteUserListing } from '../store/listingsStore'
 import OptimizedImage from '../components/OptimizedImage'
@@ -63,16 +64,16 @@ export default function MyListingsPage() {
         }
       }
     } else if (action === 'promote') {
-      alert(`Оголошення "${item.title}" підняте в пошуку! 🚀`)
+      alert('Дана функція у розробці')
     }
   }
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxMyListingsMain}>
       {/* Header */}
       <div className={styles.header}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <span className={styles.title}>Мої оголошення</span>
         <div className={styles.headerSpacer} />
@@ -91,7 +92,7 @@ export default function MyListingsPage() {
       <div className={styles.list}>
         {filtered.length === 0 ? (
           <div className={styles.empty}>
-            <div className={styles.emptyIcon}>📭</div>
+            <Inbox className={styles.emptyIcon} aria-hidden="true" size={48} />
             <div className={styles.emptyText}>Немає оголошень у цій категорії</div>
             <button className={`btn-primary ${styles.emptyAction}`} onClick={() => navigate('/add')}>
               + Додати оголошення
@@ -105,13 +106,13 @@ export default function MyListingsPage() {
                 <div className={styles.info}>
                   <div className={styles.itemHeader}>
                     <div className={styles.itemTitle}>{item.title}</div>
-                    {item.status === 'paused' && <span className={styles.pausedBadge}>⏸ призупинено</span>}
+                    {item.status === 'paused' && <span className={styles.pausedBadge}><Pause aria-hidden="true" size={12} /> призупинено</span>}
                     {item.isUserListing && item.status === 'active' && <span className={styles.newBadge}>• моє</span>}
                   </div>
                   <div className={styles.itemPrice}>{item.price.toLocaleString('uk-UA')} грн</div>
                   <div className={styles.stats}>
-                    <span>👁 {item.views}</span>
-                    <span>❤️ {item.likes}</span>
+                    <span><Eye aria-hidden="true" size={14} /> {item.views}</span>
+                    <span><Heart aria-hidden="true" size={14} /> {item.likes}</span>
                   </div>
                 </div>
               </button>
@@ -120,14 +121,14 @@ export default function MyListingsPage() {
               </button>
               {menuOpen === item.id && (
                 <div className={styles.dropdown}>
-                  <button className={styles.dropItem} onClick={() => handleMenu('view', item)}>👁 Переглянути</button>
-                  {item.isUserListing && <button className={styles.dropItem} onClick={() => handleMenu('edit', item)}>✏️ Редагувати</button>}
+                  <button className={styles.dropItem} onClick={() => handleMenu('view', item)}><Eye aria-hidden="true" size={16} /> Переглянути</button>
+                  {item.isUserListing && <button className={styles.dropItem} onClick={() => handleMenu('edit', item)}><Pencil aria-hidden="true" size={16} /> Редагувати</button>}
                   {item.status !== 'paused'
-                    ? <button className={styles.dropItem} onClick={() => handleMenu('pause', item)}>⏸️ Призупинити</button>
-                    : <button className={styles.dropItem} data-action="resume" onClick={() => handleMenu('resume', item)}>▶️ Відновити</button>
+                    ? <button className={styles.dropItem} onClick={() => handleMenu('pause', item)}><Pause aria-hidden="true" size={16} /> Призупинити</button>
+                    : <button className={styles.dropItem} data-action="resume" onClick={() => handleMenu('resume', item)}><Play aria-hidden="true" size={16} /> Відновити</button>
                   }
-                  <button className={styles.dropItem} onClick={() => handleMenu('promote', item)}>🚀 Підняти в пошуку</button>
-                  <button className={styles.dropItem} data-action="delete" onClick={() => handleMenu('delete', item)}>🗑️ Видалити</button>
+                  <button className={styles.dropItem} onClick={() => handleMenu('promote', item)}><Rocket aria-hidden="true" size={16} /> Підняти в пошуку</button>
+                  <button className={styles.dropItem} data-action="delete" onClick={() => handleMenu('delete', item)}><Trash2 aria-hidden="true" size={16} /> Видалити</button>
                 </div>
               )}
             </div>

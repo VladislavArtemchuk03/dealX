@@ -1,5 +1,6 @@
 import { useMemo, useRef, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { ArrowLeft, Send } from 'lucide-react'
 import { getAllListings } from '../store/listingsStore'
 import { useMessages } from '../hooks/useMessages'
 import OptimizedImage from '../components/OptimizedImage'
@@ -45,10 +46,10 @@ export default function SellerChatPage() {
   const quickMessages = ['Чи ще актуально?', 'Яка остаточна ціна?', 'Де можна забрати?', 'Відправляєте поштою?']
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxSellerChatMain}>
       <div className={styles.header}>
         <button className={styles.backButton} onClick={() => { closeChat(); navigate(-1) }} aria-label="Назад">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <OptimizedImage src={seller.avatar} alt={seller.name} className={styles.avatar} />
         <div className={styles.sellerInfo}>
@@ -105,7 +106,7 @@ export default function SellerChatPage() {
           rows={1}
         />
         <button className={styles.sendButton} onClick={handleSend} disabled={!input.trim()} aria-label="Надіслати повідомлення">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="var(--bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          <Send aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
       </div>
     </div>

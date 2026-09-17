@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
+import { ArrowLeft, ChevronRight, Eye, Heart, MessageCircle, Share2, Star, Truck } from 'lucide-react'
 import { useProduct } from '../hooks/useProduct'
 import OptimizedImage from '../components/OptimizedImage'
 import styles from './ProductPage.module.css'
@@ -31,20 +32,18 @@ export default function ProductPage() {
   if (!item) return <div className={styles.notFound}>Товар не знайдено</div>
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxProductMain}>
       {/* Top bar */}
       <div className={styles.topBar}>
           <button className={styles.backBtn} onClick={() => navigate(-1)} aria-label="Назад">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <div className={styles.topActions}>
           <button className={styles.iconBtn} onClick={toggleLike} title="До обраних" aria-label="До обраних">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill={isLiked ? 'var(--danger)' : 'none'}>
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke={isLiked ? 'var(--danger)' : 'white'} strokeWidth="1.8" />
-            </svg>
+            <Heart aria-hidden="true" size={22} fill={isLiked ? 'var(--danger)' : 'none'} stroke={isLiked ? 'var(--danger)' : 'white'} strokeWidth={1.8} />
           </button>
           <button className={styles.iconBtn} onClick={handleShare} title="Поділитися" aria-label="Поділитися">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="white" strokeWidth="1.8" /><circle cx="6" cy="12" r="3" stroke="white" strokeWidth="1.8" /><circle cx="18" cy="19" r="3" stroke="white" strokeWidth="1.8" /><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" stroke="white" strokeWidth="1.8" /></svg>
+            <Share2 aria-hidden="true" size={22} strokeWidth={1.8} />
           </button>
         </div>
       </div>
@@ -86,10 +85,10 @@ export default function ProductPage() {
         {/* Actions */}
         <div className={styles.actions}>
           <button className="btn-primary" onClick={() => setShowDelivery(true)}>
-            🚚 Купити з доставкою
+            <Truck aria-hidden="true" size={18} /> Купити з доставкою
           </button>
           <button className="btn-outline" onClick={() => navigate(`/chat/${item.id}`)}>
-            ✉️ Написати продавцю
+            <MessageCircle aria-hidden="true" size={18} /> Написати продавцю
           </button>
         </div>
 
@@ -100,12 +99,12 @@ export default function ProductPage() {
             <div className={styles.sellerName}>{item.seller.name}</div>
             <div className={styles.sellerSince}>На сайті з {item.seller.since}</div>
             <div className={styles.rating}>
-              <span className={styles.star}>★</span>
+              <Star className={styles.star} aria-hidden="true" size={14} fill="currentColor" />
               <span className={styles.ratingValue}>{item.seller.rating}</span>
               <span className={styles.reviewCount}>({item.seller.reviews} відгуки)</span>
             </div>
           </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />
         </button>
 
         {/* Characteristics */}
@@ -132,8 +131,8 @@ export default function ProductPage() {
 
         {/* Stats */}
         <div className={styles.stats}>
-          <span>👁 {item.views} переглядів</span>
-          <span>❤️ {item.likes} в обраних</span>
+          <span><Eye aria-hidden="true" size={14} /> {item.views} переглядів</span>
+          <span><Heart aria-hidden="true" size={14} /> {item.likes} в обраних</span>
         </div>
       </div>
 
@@ -148,7 +147,7 @@ export default function ProductPage() {
           <div className={styles.specRow}><span className={styles.specLabel}>Товар</span><span className={styles.specVal}>{item.title}</span></div>
           <div className={styles.specRow}><span className={styles.specLabel}>Ціна</span><span className={`${styles.specVal} ${styles.deliveryPrice}`}>{item.price.toLocaleString('uk-UA')} грн</span></div>
           <div className={styles.specRow}><span className={styles.specLabel}>Доставка</span><span className={styles.specVal}>~80-120 грн</span></div>
-          <button className={`btn-primary ${styles.confirmButton}`} onClick={() => { setShowDelivery(false); alert('Замовлення оформлено!') }}>
+          <button className={`btn-primary ${styles.confirmButton}`} onClick={() => { setShowDelivery(false); alert('Дана функція у розробці') }}>
             Підтвердити замовлення
           </button>
         </Modal>

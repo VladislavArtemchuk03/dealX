@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { ArrowLeft, Heart } from 'lucide-react'
 import { useFavorites } from '../hooks/useFavorites'
 import { getAllListings } from '../store/listingsStore'
 import OptimizedImage from '../components/OptimizedImage'
@@ -10,10 +11,10 @@ export default function FavoritesPage() {
   const items = favoriteIds.map(id => getAllListings().find(l => l.id === id)).filter(Boolean)
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxFavoritesMain}>
       <div className={styles.header}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <span className={styles.title}>Обране</span>
         {items.length > 0 && <span className={styles.count}>{items.length}</span>}
@@ -21,9 +22,9 @@ export default function FavoritesPage() {
 
       {items.length === 0 ? (
         <div className={styles.empty}>
-          <div className={styles.emptyIcon}>❤️</div>
+          <Heart className={styles.emptyIcon} aria-hidden="true" />
           <div className={styles.emptyTitle}>Обране порожнє</div>
-          <div className={styles.emptyDescription}>Натискайте ❤️ на товарах, щоб зберегти їх тут</div>
+          <div className={styles.emptyDescription}>Додавайте товари до обраного, щоб зберегти їх тут</div>
           <Link className={`btn-primary ${styles.emptyAction}`} to="/home">
             Перейти до оголошень
           </Link>
@@ -43,9 +44,7 @@ export default function FavoritesPage() {
                 </div>
               </Link>
               <button className={styles.removeBtn} onClick={e => toggleFavorite(item.id, e)} title="Видалити з обраного">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--danger)">
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="var(--danger)" strokeWidth="1.8" />
-                </svg>
+                <Heart aria-hidden="true" size={20} fill="var(--danger)" stroke="var(--danger)" />
               </button>
             </div>
           ))}

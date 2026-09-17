@@ -1,5 +1,5 @@
-.page { background: var(--bg); padding: 0; }
-.newBanner { position: sticky; top: 0; z-index: 20; padding: 10px 16px; color: var(--bg); background: var(--accent); text-align: center; font-size: 14px; font-weight: 600; }
+.dealxHomeMain { background: var(--bg); padding: 0; }
+.newBanner { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; color: var(--bg); background: var(--accent); text-align: center; font-size: 14px; font-weight: 600; }
 .header { display: flex; align-items: center; justify-content: space-between; padding: 16px 16px 8px; }
 .logo { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
 .accentText { color: var(--accent); }
@@ -16,7 +16,7 @@
 .bannerTitle { color: #fff; font-size: 18px; font-weight: 700; line-height: 1.3; }
 .bannerSub { margin-top: 6px; color: var(--text-secondary); font-size: 12px; }
 .addListingButton { display: inline-flex; align-items: center; width: auto; margin-top: 20px; padding: 10px 12px; font-size: 12px; white-space: nowrap; }
-.bannerEmoji { align-self: center; font-size: 60px; }
+.bannerEmoji { align-self: center; color: var(--accent); }
 .section { padding: 0 16px 20px; }
 .sectionHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .sectionTitle { color: #fff; font-size: 16px; font-weight: 600; }
@@ -26,21 +26,21 @@
 .categoryIcon { color: var(--accent); }
 .categoryLabel { color: var(--text-secondary); font-size: 11px; text-align: center; white-space: nowrap; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.itemCard { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); cursor: pointer; text-align: left; }
+.itemCard { position: relative; overflow: hidden; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); cursor: pointer; text-align: left; }
 .itemImageWrap { position: relative; }
 .itemImage { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
 .heartButton { position: absolute; top: 6px; right: 6px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: none; border-radius: 50%; color: #fff; background: rgba(0, 0, 0, 0.3); cursor: pointer; font-size: 14px; }
 .heartButton[data-favorite] { color: var(--danger); }
 .itemLink { display: block; }
-.itemBody { padding: 8px 10px 10px; }
+.itemBody { padding: 8px 0 0; }
 .itemPrice { color: var(--accent); font-size: 14px; font-weight: 700; }
 .itemTitle { margin-top: 2px; color: #fff; font-size: 13px; font-weight: 500; }
 .itemLocation { margin-top: 3px; color: var(--text-secondary); font-size: 11px; }
 .listings { display: flex; flex-direction: column; gap: 10px; }
-.listItem { display: flex; align-items: center; gap: 12px; overflow: hidden; padding: 0 12px 0 0; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); cursor: pointer; text-align: left; }
+.listItem { display: flex; align-items: center; gap: 12px; overflow: hidden; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); cursor: pointer; text-align: left; }
 .listLink { display: flex; flex: 1; align-items: center; gap: 12px; min-width: 0; }
 .listImage { flex-shrink: 0; width: 90px; height: 90px; object-fit: cover; }
-.listBody { display: flex; flex: 1; flex-direction: column; gap: 2px; padding: 10px 0; }
+.listBody { display: flex; flex: 1; flex-direction: column; gap: 2px; padding: 0; }
 .listPrice { font-size: 15px; }
 .negotiable { color: var(--text-secondary); font-size: 11px; }
 .heartButtonSmall { flex-shrink: 0; border: none; background: none; cursor: pointer; font-size: 16px; }

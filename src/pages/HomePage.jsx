@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Armchair, Bell, CheckCircle, Heart, MapPin, Search, SlidersHorizontal } from 'lucide-react'
 import { CATEGORIES } from '../data/listings'
 import { useFavorites } from '../hooks/useFavorites'
 import { useListings } from '../hooks/useListings'
@@ -31,10 +32,10 @@ export default function HomePage() {
   }
 
   return (
-    <div className={`page home-page ${styles.page}`}>
+    <div className={`page home-page ${styles.dealxHomeMain}`}>
       {newBanner && (
         <div className={styles.newBanner}>
-          ✅ {newBanner}
+          <CheckCircle aria-hidden="true" size={18} /> {newBanner}
         </div>
       )}
       {/* Header */}
@@ -42,16 +43,16 @@ export default function HomePage() {
         <div>
           <div className={styles.logo}><span className={styles.accentText}>Deal</span>X</div>
           <div className={styles.location}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="var(--accent)" /></svg>
+            <MapPin aria-hidden="true" size={12} strokeWidth={1.8} />
             <span>Київ, Україна</span>
           </div>
         </div>
         <div className={styles.headerActions}>
           <IconBtn to="/favorites" title="Обрані">
-            <HeartSvg />
+            <Heart aria-hidden="true" size={22} strokeWidth={1.8} />
           </IconBtn>
-          <IconBtn onClick={() => alert('Нових сповіщень немає')} title="Сповіщення">
-            <BellSvg />
+          <IconBtn onClick={() => alert('Дана функція у розробці')} title="Сповіщення">
+            <Bell aria-hidden="true" size={22} strokeWidth={1.8} />
           </IconBtn>
         </div>
       </div>
@@ -59,7 +60,7 @@ export default function HomePage() {
       {/* Search */}
       <form onSubmit={handleSearch} className={styles.searchRow}>
         <div className={styles.searchWrap}>
-          <svg className={styles.searchIcon} width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--text-secondary)" strokeWidth="2" /><path d="M21 21l-4-4" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" /></svg>
+          <Search className={styles.searchIcon} aria-hidden="true" size={16} strokeWidth={1.8} />
           <input
             className={styles.searchInput}
             placeholder="Пошук товарів..."
@@ -68,7 +69,7 @@ export default function HomePage() {
           />
         </div>
         <Link to="/search" className={styles.filterButton} title="Фільтри">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 12h10M10 18h4" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <SlidersHorizontal aria-hidden="true" size={18} strokeWidth={1.8} />
         </Link>
       </form>
 
@@ -81,7 +82,7 @@ export default function HomePage() {
             + Додати оголошення
           </Link>
         </div>
-        <div className={styles.bannerEmoji}>🛋️</div>
+        <Armchair className={styles.bannerEmoji} aria-hidden="true" size={60} strokeWidth={1.6} />
       </div>
 
       {/* Categories */}
@@ -116,7 +117,7 @@ export default function HomePage() {
                   data-favorite={isFavorite(item.id) || undefined}
                   onClick={e => toggleFavorite(item.id, e)}
                 >
-                  {isFavorite(item.id) ? '❤️' : '🤍'}
+                  <Heart aria-hidden="true" size={16} fill={isFavorite(item.id) ? 'var(--danger)' : 'none'} stroke={isFavorite(item.id) ? 'var(--danger)' : 'white'} />
                 </button>
               </div>
               <Link to={`/product/${item.id}`} className={styles.itemLink}><div className={styles.itemBody}>
@@ -147,7 +148,7 @@ export default function HomePage() {
                 </div>
               </Link>
               <button className={styles.heartButtonSmall} onClick={e => toggleFavorite(item.id, e)}>
-                {isFavorite(item.id) ? '❤️' : '🤍'}
+                <Heart aria-hidden="true" size={18} fill={isFavorite(item.id) ? 'var(--danger)' : 'none'} stroke={isFavorite(item.id) ? 'var(--danger)' : 'white'} />
               </button>
             </div>
           ))}
@@ -168,9 +169,3 @@ function IconBtn({ onClick, to, children, title }) {
   )
 }
 
-function HeartSvg() {
-  return <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="white" strokeWidth="1.8" /></svg>
-}
-function BellSvg() {
-  return <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-}

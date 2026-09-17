@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { ArrowLeft, ChevronRight, Eye } from 'lucide-react'
 import { useViewHistory } from '../hooks/useViewHistory'
 import OptimizedImage from '../components/OptimizedImage'
 import styles from './ViewedPage.module.css'
@@ -8,10 +9,10 @@ export default function ViewedPage() {
   const { items, clear } = useViewHistory()
 
   return (
-    <div className={styles.page}>
+    <div className={styles.dealxViewedMain}>
       <div className={styles.header}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
+          <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
         </button>
         <span className={styles.title}>Переглянуті</span>
         {items.length > 0 && (
@@ -23,7 +24,7 @@ export default function ViewedPage() {
 
       {items.length === 0 ? (
         <div className={styles.empty}>
-          <div className={styles.emptyIcon}>👁</div>
+          <Eye className={styles.emptyIcon} aria-hidden="true" />
           <div className={styles.emptyTitle}>Немає переглянутих товарів</div>
           <div className={styles.emptyDescription}>Відкрийте будь-яке оголошення, і воно з'явиться тут</div>
           <Link className={`btn-primary ${styles.emptyAction}`} to="/home">
@@ -33,7 +34,7 @@ export default function ViewedPage() {
       ) : (
         <div className={styles.list}>
           <div className={styles.listCount}>
-            {items.length} {plural(items.length, 'товар', 'товари', 'товарів')}
+            {plural(items.length, 'товар', 'товари', 'товарів')}
           </div>
           {items.map(item => (
             <Link key={item.id} to={`/product/${item.id}`} className={styles.card}>
@@ -44,7 +45,7 @@ export default function ViewedPage() {
                 {item.negotiable && <span className={styles.negotiable}>Договірна</span>}
                 <div className={styles.itemLocation}>{item.location}</div>
               </div>
-              <svg className={styles.chevron} width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" /></svg>
+              <ChevronRight className={styles.chevron} aria-hidden="true" size={16} strokeWidth={1.8} />
             </Link>
           ))}
         </div>

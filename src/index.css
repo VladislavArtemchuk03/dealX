@@ -252,7 +252,23 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
   width: 36px;
   height: 36px;
   background: none;
-  font-size: 15px;
+  display: grid;
+  place-items: center;
+}
+
+.auth-visibility-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+.auth-eye[data-visible] .auth-visibility-indicator {
+  background: #31b45b;
+}
+
+.chat-active ~ nav {
+  display: none;
 }
 
 .auth-submit {
@@ -284,6 +300,9 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
 }
 
 .auth-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: #ff8b8b;
   background: rgba(255, 68, 68, 0.12);
   border: 1px solid rgba(255, 68, 68, 0.35);
@@ -509,6 +528,10 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
   }
 
   .side-nav-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     margin: 24px 4px 16px;
     padding: 12px;
     background: var(--accent);
@@ -518,9 +541,8 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
     font-weight: 700;
   }
 
-  .side-nav-add span {
-    font-size: 19px;
-    margin-right: 4px;
+  .side-nav-add svg {
+    flex-shrink: 0;
   }
 
   .side-nav-user {
@@ -581,10 +603,26 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 
+  .home-recommendations > * {
+    padding: 10px;
+  }
+
+  .home-recommendations > * > *:last-child {
+    padding: 8px 0 0;
+  }
+
   .home-listings {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px !important;
+  }
+
+  .home-listings > *[class] {
+    padding: 10px;
+  }
+
+  .home-listings > *[class] > *:first-child > *:last-child {
+    padding: 0;
   }
 
   .home-categories {
@@ -659,6 +697,9 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
   }
 
   .auth-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #d4d4d4;
     font-size: 14px;
   }
