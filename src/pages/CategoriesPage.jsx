@@ -27,9 +27,11 @@ export default function CategoriesPage() {
 
       {!selected ? (
         <div className={`categories-grid ${styles.categoryGrid}`}>
-          {CATEGORIES.map(cat => (
+          {CATEGORIES.map((cat, index) => (
             <button key={cat.id} className={styles.categoryCard} onClick={() => setSelected(cat.name)}>
-              <CategoryIcon category={cat.name} className={styles.categoryIcon} size={28} />
+              <span className={`${styles.categoryIcon} ${styles[`categoryIconTone${(index % 5) + 1}`]}`}>
+                <CategoryIcon category={cat.name} size={22} />
+              </span>
               <div className={styles.categoryName}>{cat.name}</div>
               <div className={styles.categoryCount}>{listings.filter(item => item.category === cat.name).length.toLocaleString('uk-UA')} оголошень</div>
             </button>

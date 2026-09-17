@@ -44,8 +44,23 @@
 }
 
 .categoryIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
   margin-bottom: 8px;
-  color: var(--accent);
+  border-radius: 8px;
+}
+
+.categoryIconTone1 { color: #ffb703; background: rgba(255, 183, 3, 0.16); }
+.categoryIconTone2 { color: #43c59e; background: rgba(67, 197, 158, 0.16); }
+.categoryIconTone3 { color: #65b9ff; background: rgba(101, 185, 255, 0.16); }
+.categoryIconTone4 { color: #f071a0; background: rgba(240, 113, 160, 0.16); }
+.categoryIconTone5 { color: #c992ff; background: rgba(201, 146, 255, 0.16); }
+
+.categoryIcon svg {
+  display: block;
 }
 
 .categoryName {

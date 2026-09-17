@@ -479,7 +479,7 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
   .app-layout {
     display: grid;
     grid-template-columns: 232px minmax(0, 1fr);
-    background: #0c0c0c;
+    background: var(--bg);
   }
 
   .side-nav {
@@ -488,7 +488,7 @@ div[style*="typingDots"] span:nth-child(3) { animation-delay: 0.4s; }
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #171717;
+    background: var(--bg-card);
     border-right: 1px solid var(--border);
     padding: 26px 14px 16px;
   }
