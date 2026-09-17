@@ -78,7 +78,7 @@ export default function HomePage() {
         <div className={styles.bannerContent}>
           <div className={styles.bannerTitle}>Знайди все, що потрібно.<br /><span className={styles.accentText}>Продай те, що набридло.</span></div>
           <div className={styles.bannerSub}>Легко, швидко та безпечно з DealX</div>
-          <Link className={`btn-primary ${styles.addListingButton}`} to="/add">
+          <Link className={`btn-primary add-listings-button ${styles.addListingsButton}`} to="/add">
             + Додати оголошення
           </Link>
         </div>

@@ -1,19 +1,19 @@
-.dealxCategoriesMain {
+.categoryApp {
   background: var(--bg);
 }
 
-.header {
+.categoryHeader {
   padding: 16px 16px 12px;
   border-bottom: 1px solid var(--border);
 }
 
-.title {
+.categoryTitle {
   display: block;
   font-size: 20px;
   font-weight: 700;
 }
 
-.backInline {
+.categoryBack {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -71,8 +71,8 @@
 }
 
 .categoryCount,
-.resultsCount,
-.emptyResults,
+.categoryResultsCount,
+.categoryEmptyResults,
 .negotiable,
 .itemLocation {
   color: var(--text-secondary);
@@ -82,25 +82,25 @@
   font-size: 12px;
 }
 
-.results {
+.categoryResults {
   padding: 0 16px;
 }
 
-.emptyResults {
+.categoryEmptyResults {
   padding-top: 60px;
   text-align: center;
 }
 
-.emptyIcon {
+.categoryEmptyIcon {
   margin-bottom: 12px;
   font-size: 40px;
 }
 
-.allCategoriesBtn {
+.categoryAllButton {
   margin-top: 20px;
 }
 
-.resultsCount {
+.categoryResultsCount {
   padding: 12px 0 16px;
   font-size: 13px;
 }

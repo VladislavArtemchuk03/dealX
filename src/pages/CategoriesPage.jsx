@@ -15,10 +15,10 @@ export default function CategoriesPage() {
   const filtered = selected ? listings.filter(l => l.category === selected) : []
 
   return (
-    <div className={`page categories-page ${styles.dealxCategoriesMain}`}>
-      <div className={styles.header}>
-        <span className={styles.title}>{selected ? (
-          <button className={styles.backInline} onClick={() => setSelected(null)}>
+    <div className={`page category-app ${styles.categoryApp}`}>
+      <div className={`category-header ${styles.categoryHeader}`}>
+        <span className={`category-title ${styles.categoryTitle}`}>{selected ? (
+          <button className={`category-back ${styles.categoryBack}`} onClick={() => setSelected(null)}>
             <ArrowLeft aria-hidden="true" size={18} strokeWidth={1.8} />
             {selected}
           </button>
@@ -26,28 +26,28 @@ export default function CategoriesPage() {
       </div>
 
       {!selected ? (
-        <div className={`categories-grid ${styles.categoryGrid}`}>
+        <div className={`category-grid ${styles.categoryGrid}`}>
           {CATEGORIES.map((cat, index) => (
-            <button key={cat.id} className={styles.categoryCard} onClick={() => setSelected(cat.name)}>
-              <span className={`${styles.categoryIcon} ${styles[`categoryIconTone${(index % 5) + 1}`]}`}>
+            <button key={cat.id} className={`category-card ${styles.categoryCard}`} onClick={() => setSelected(cat.name)}>
+              <span className={`category-icon ${styles.categoryIcon} ${styles[`categoryIconTone${(index % 5) + 1}`]}`}>
                 <CategoryIcon category={cat.name} size={22} />
               </span>
-              <div className={styles.categoryName}>{cat.name}</div>
-              <div className={styles.categoryCount}>{listings.filter(item => item.category === cat.name).length.toLocaleString('uk-UA')} оголошень</div>
+              <div className={`category-name ${styles.categoryName}`}>{cat.name}</div>
+              <div className={`category-count ${styles.categoryCount}`}>{listings.filter(item => item.category === cat.name).length.toLocaleString('uk-UA')} оголошень</div>
             </button>
           ))}
         </div>
       ) : (
-        <div className={`category-results ${styles.results}`}>
+        <div className={`category-results ${styles.categoryResults}`}>
           {filtered.length === 0 ? (
-            <div className={styles.emptyResults}>
-              <Search className={styles.emptyIcon} aria-hidden="true" size={40} />
+            <div className={`category-empty-results ${styles.categoryEmptyResults}`}>
+              <Search className={`category-empty-icon ${styles.categoryEmptyIcon}`} aria-hidden="true" size={40} />
               <div>Немає оголошень у цій категорії</div>
-              <button className={`btn-primary ${styles.allCategoriesBtn}`} onClick={() => setSelected(null)}>← Всі категорії</button>
+              <button className={`btn-primary category-all-button ${styles.categoryAllButton}`} onClick={() => setSelected(null)}>← Всі категорії</button>
             </div>
           ) : (
             <>
-              <div className={styles.resultsCount}>{filtered.length} оголошень</div>
+              <div className={`category-results-count ${styles.categoryResultsCount}`}>{filtered.length} оголошень</div>
               <div className={`category-listings ${styles.listings}`}>
                 {filtered.map(item => (
                   <Link key={item.id} to={`/product/${item.id}`} className={styles.listItem}>

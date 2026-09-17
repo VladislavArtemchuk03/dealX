@@ -15,7 +15,7 @@
 .bannerContent { flex: 1; }
 .bannerTitle { color: #fff; font-size: 18px; font-weight: 700; line-height: 1.3; }
 .bannerSub { margin-top: 6px; color: var(--text-secondary); font-size: 12px; }
-.addListingButton { display: inline-flex; align-items: center; width: auto; margin-top: 20px; padding: 10px 12px; font-size: 12px; white-space: nowrap; }
+.addListingsButton { display: inline-flex; align-items: center; width: auto; margin-top: 20px; padding: 10px 12px; font-size: 12px; white-space: nowrap; }
 .bannerEmoji { align-self: center; color: var(--accent); }
 .section { padding: 0 16px 20px; }
 .sectionHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
