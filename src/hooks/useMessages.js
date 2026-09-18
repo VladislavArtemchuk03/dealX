@@ -65,7 +65,7 @@ export function useMessages() {
     localStorage.setItem(CHATS_KEY, JSON.stringify(chats))
   }, [chats])
 
-  // mark messages as read when opening chat
+  // позначати повідомлення як прочитані під час відкриття чату
   useEffect(() => {
     if (!activeChat || !user) return
     const chatId = getChatKey(user.id, activeChat)
