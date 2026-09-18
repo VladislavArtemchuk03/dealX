@@ -70,7 +70,7 @@ export default function MyListingsPage() {
 
   return (
     <div className={styles.dealxMyListingsMain}>
-      {/* Header */}
+      {/* Заголовок */}
       <div className={styles.header}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
           <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
@@ -79,7 +79,7 @@ export default function MyListingsPage() {
         <div className={styles.headerSpacer} />
       </div>
 
-      {/* Tabs */}
+      {/* Вкладки */}
       <div className={styles.tabs}>
         {tabs.map(t => (
           <button key={t.key} className={styles.tabBtn} data-active={tab === t.key || undefined} onClick={() => setTab(t.key)}>
@@ -88,7 +88,7 @@ export default function MyListingsPage() {
         ))}
       </div>
 
-      {/* List */}
+      {/* Список */}
       <div className={styles.list}>
         {filtered.length === 0 ? (
           <div className={styles.empty}>
@@ -142,4 +142,3 @@ export default function MyListingsPage() {
     </div>
   )
 }
-

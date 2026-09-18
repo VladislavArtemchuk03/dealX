@@ -37,7 +37,7 @@ export default function AddListingPage() {
 
   return (
     <div className={styles.dealxAddListingMain}>
-      {/* Header */}
+      {/* Заголовок */}
       <div className={styles.header}>
         <button className={styles.closeBtn} onClick={() => navigate(-1)}>
           <X aria-hidden="true" size={20} strokeWidth={1.8} />
@@ -46,7 +46,7 @@ export default function AddListingPage() {
         <button className={styles.draftBtn} onClick={saveDraft}>Зберегти чернетку</button>
       </div>
 
-      {/* Stepper */}
+      {/* Індикатор кроків */}
       <div className={styles.stepper}>
         {[1, 2, 3, 4].map(n => (
           <button key={n} className={styles.stepDot} data-current={n === step || undefined} data-complete={n < step || undefined} onClick={() => goToStep(n)} aria-label={`Крок ${n}: ${STEP_LABELS[n - 1]}`} aria-current={n === step ? 'step' : undefined}>
@@ -62,7 +62,7 @@ export default function AddListingPage() {
         {step === 4 && <Step4 form={form} />}
       </div>
 
-      {/* Bottom action */}
+      {/* Нижня панель дій */}
       <div className={styles.bottomAction}>
         {step < 4 ? (
           <button className={`btn-primary ${styles.nextButton}`} data-can-proceed={canProceed} onClick={nextStep}>
@@ -222,4 +222,3 @@ function Field({ label, children }) {
     </div>
   )
 }
-

@@ -25,7 +25,7 @@ export default function ProductPage() {
         alert('Посилання скопійовано')
       }
     } catch {
-      // Sharing can be cancelled by the user.
+      // Користувач може скасувати поширення.
     }
   }
 
@@ -33,7 +33,7 @@ export default function ProductPage() {
 
   return (
     <div className={styles.dealxProductMain}>
-      {/* Image gallery */}
+      {/* Галерея зображень */}
       <div className={styles.gallery}>
         <div className={styles.topBar}>
           <button className={styles.backBtn} onClick={() => navigate(-1)} aria-label="Назад">
@@ -62,7 +62,7 @@ export default function ProductPage() {
         )}
       </div>
 
-      {/* Thumbnails */}
+      {/* Мініатюри */}
       {item.images.length > 1 && (
         <div className={styles.thumbRow}>
           {item.images.map((img, i) => (
@@ -74,13 +74,13 @@ export default function ProductPage() {
       )}
 
       <div className={styles.content}>
-        {/* Title & Price */}
+        {/* Назва та ціна */}
         <h1 className={styles.title}>{item.title}</h1>
         <div className={styles.price}>{item.price.toLocaleString('uk-UA')} грн</div>
         {item.negotiable && <div className={styles.negotiable}>Договірна</div>}
         <div className={styles.location}>{item.location}</div>
 
-        {/* Actions */}
+        {/* Дії */}
         <div className={styles.actions}>
           <button className="btn-primary" onClick={() => setShowDelivery(true)}>
             <Truck aria-hidden="true" size={18} /> Купити з доставкою
@@ -90,7 +90,7 @@ export default function ProductPage() {
           </button>
         </div>
 
-        {/* Seller */}
+        {/* Продавець */}
         <button className={styles.sellerCard} onClick={() => navigate(`/chat/${item.id}`)} aria-label={`Написати продавцю ${item.seller.name}`}>
           <OptimizedImage src={item.seller.avatar} alt={item.seller.name} className={styles.avatar} />
           <div className={styles.sellerInfo}>
@@ -105,7 +105,7 @@ export default function ProductPage() {
           <ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />
         </button>
 
-        {/* Characteristics */}
+        {/* Характеристики */}
         <div className={styles.specsCard}>
           <div className={styles.sectionHeading}>Характеристики</div>
           {visibleSpecs.map(sp => (
@@ -121,22 +121,22 @@ export default function ProductPage() {
           )}
         </div>
 
-        {/* Description */}
+        {/* Опис */}
         <div className={styles.specsCard}>
           <div className={`${styles.sectionHeading} ${styles.descriptionHeading}`}>Опис</div>
           <p className={styles.description}>{item.description}</p>
         </div>
 
-        {/* Stats */}
+        {/* Статистика */}
         <div className={styles.stats}>
           <span><Eye aria-hidden="true" size={14} /> {item.views} переглядів</span>
           <span><Heart aria-hidden="true" size={14} /> {item.likes} в обраних</span>
         </div>
       </div>
 
-      {/* Contact modal — replaced by SellerChatPage, kept for delivery only */}
+      {/* Контактне модальне вікно — замінене на SellerChatPage, залишене лише для доставки */}
 
-      {/* Delivery modal */}
+      {/* Модальне вікно доставки */}
       {showDelivery && (
         <Modal onClose={() => setShowDelivery(false)} title="Замовити доставку">
           <div className={styles.deliveryDescription}>
@@ -167,4 +167,3 @@ function Modal({ onClose, title, children }) {
     </div>
   )
 }
-

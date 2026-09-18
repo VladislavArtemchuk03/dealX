@@ -13,7 +13,7 @@ export default function SearchPage() {
 
   return (
     <div className={`page search-page ${styles.dealxSearchMain}`}>
-      {/* Search bar */}
+      {/* Пошуковий рядок */}
       <div className={styles.searchBar}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
           <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
@@ -30,7 +30,7 @@ export default function SearchPage() {
         </div>
       </div>
 
-      {/* Sort */}
+      {/* Сортування */}
       <div className={styles.sortRow}>
         <span className={styles.resultCount}>{resultLabel(results.length)}</span>
         <div className={styles.sortControls}>
@@ -48,7 +48,7 @@ export default function SearchPage() {
         </div>
       </div>
 
-      {/* Results */}
+      {/* Результати */}
       <div className={`search-results ${styles.results}`}>
         {results.length === 0 && (
           <div className={styles.emptyResults}>

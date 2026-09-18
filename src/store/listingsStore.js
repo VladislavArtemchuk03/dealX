@@ -49,7 +49,7 @@ export function deleteUserListing(id) {
 }
 
 export function getAllListings() {
-  // paused user listings are hidden from the public feed
+  // призупинені оголошення користувача приховані з публічної стрічки
   return [...getUserListings().filter(l => !l.paused), ...LISTINGS]
 }
 

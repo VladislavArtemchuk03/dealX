@@ -44,7 +44,7 @@ export default function AuthPage() {
 
   return (
     <div className="auth-root">
-      {/* Left branding panel — desktop only */}
+      {/* Ліва брендова панель — лише для десктопа */}
       <div className="auth-brand">
         <div className="auth-brand-inner">
           <div className="auth-logo"><span className={styles.accentText}>Deal</span>X</div>
@@ -63,13 +63,13 @@ export default function AuthPage() {
         </div>
       </div>
 
-      {/* Form panel */}
+      {/* Панель форми */}
       <div className="auth-form-panel">
         <div className="auth-form-inner">
-          {/* Mobile logo */}
+          {/* Логотип для мобільної версії */}
           <div className="auth-logo-mobile"><span className={styles.accentText}>Deal</span>X</div>
 
-          {/* Tabs */}
+          {/* Вкладки */}
           <div className="auth-tabs">
             <button className={`auth-tab${tab === 'login' ? ' auth-tab-active' : ''}`} onClick={() => { setTab('login'); setError('') }}>
               Вхід
@@ -132,4 +132,3 @@ export default function AuthPage() {
     </div>
   )
 }
-

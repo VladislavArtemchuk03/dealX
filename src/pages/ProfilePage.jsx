@@ -35,7 +35,7 @@ export default function ProfilePage() {
 
   return (
     <div className={`page ${styles.dealxProfileMain}`}>
-      {/* Header */}
+      {/* Заголовок */}
       <div className={styles.header}>
         <span className={styles.headerTitle}>DealX</span>
         <Link className={styles.settingsButton} to="/profile/edit">
@@ -43,7 +43,7 @@ export default function ProfilePage() {
         </Link>
       </div>
 
-      {/* User card */}
+      {/* Картка користувача */}
       <div className={styles.userCard}>
         <OptimizedImage src={displayUser.avatar} alt={displayUser.name} className={styles.avatar} />
         <div className={styles.userInfo}>
@@ -61,7 +61,7 @@ export default function ProfilePage() {
         </Link>
       </div>
 
-      {/* Stats */}
+      {/* Статистика */}
       <div className={styles.statsRow}>
         {[[userListings.length || 12, 'Оголошень'], [favoriteIds.length, 'Обраних'], [viewedIds.length, 'Переглянутих']].map(([val, label]) => (
           <div key={label} className={styles.statItem}>
@@ -71,7 +71,7 @@ export default function ProfilePage() {
         ))}
       </div>
 
-      {/* Menu */}
+      {/* Меню */}
       <div className={styles.menu}>
         {MENU_ITEMS.map(({ icon: Icon, label, badge, route }) => (
           route ? <Link key={label} className={styles.menuRow} to={route}>
@@ -95,4 +95,3 @@ export default function ProfilePage() {
     </div>
   )
 }
-

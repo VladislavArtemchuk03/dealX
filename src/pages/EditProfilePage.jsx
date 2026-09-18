@@ -67,7 +67,7 @@ export default function EditProfilePage() {
 
   return (
     <div className={styles.dealxEditProfileMain}>
-      {/* Header */}
+      {/* Заголовок */}
       <div className={styles.header}>
         <button className={styles.backButton} onClick={() => navigate(-1)}>
           <ArrowLeft aria-hidden="true" size={20} strokeWidth={1.8} />
@@ -76,7 +76,7 @@ export default function EditProfilePage() {
         <div className={styles.headerSpacer} />
       </div>
 
-      {/* Avatar */}
+      {/* Аватар */}
       <div className={styles.avatarSection}>
         <div className={styles.avatarWrap}>
           <OptimizedImage src={form.avatar} alt="Аватар профілю" className={styles.avatar} />
@@ -95,7 +95,7 @@ export default function EditProfilePage() {
         )}
       </div>
 
-      {/* Form */}
+      {/* Форма */}
       <div className={styles.form}>
         {error && <div className="auth-error">{error}</div>}
         <Field label="Ім'я">
@@ -122,7 +122,7 @@ export default function EditProfilePage() {
           </div>
         </Field>
 
-        {/* Divider */}
+        {/* Роздільник */}
         <div className={styles.sectionLabel}>Безпека</div>
 
         <button className={styles.securityRow} onClick={() => setShowPasswordDialog(true)}>
@@ -138,7 +138,7 @@ export default function EditProfilePage() {
         </button>
       </div>
 
-      {/* Save bar */}
+      {/* Панель збереження */}
       <div className={styles.saveBar}>
         {saved ? (
           <div className={styles.saveSuccess}>
@@ -187,4 +187,3 @@ function Field({ label, children }) {
     </div>
   )
 }
-

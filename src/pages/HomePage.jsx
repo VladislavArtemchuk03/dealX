@@ -16,7 +16,7 @@ export default function HomePage() {
   const { listings, refresh } = useListings()
   const [newBanner, setNewBanner] = useState(null)
 
-  // refresh + show banner when returning from a successful publish
+  // оновити список і показати банер після повернення з успішної публікації
   useEffect(() => {
     if (location.state?.newListingId) {
       refresh()
@@ -38,7 +38,7 @@ export default function HomePage() {
           <CheckCircle aria-hidden="true" size={18} /> {newBanner}
         </div>
       )}
-      {/* Header */}
+      {/* Заголовок */}
       <div className={styles.header}>
         <div>
           <div className={styles.logo}><span className={styles.accentText}>Deal</span>X</div>
@@ -57,7 +57,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Search */}
+      {/* Пошук */}
       <form onSubmit={handleSearch} className={styles.searchRow}>
         <div className={styles.searchWrap}>
           <Search className={styles.searchIcon} aria-hidden="true" size={16} strokeWidth={1.8} />
@@ -73,7 +73,7 @@ export default function HomePage() {
         </Link>
       </form>
 
-      {/* Hero Banner */}
+      {/* Головний банер */}
       <div className={styles.banner}>
         <div className={styles.bannerContent}>
           <div className={styles.bannerTitle}>Знайди все, що потрібно.<br /><span className={styles.accentText}>Продай те, що набридло.</span></div>
@@ -85,7 +85,7 @@ export default function HomePage() {
         <Armchair className={styles.bannerEmoji} aria-hidden="true" size={60} strokeWidth={1.6} />
       </div>
 
-      {/* Categories */}
+      {/* Категорії */}
       <div className={styles.section}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTitle}>Категорії</span>
@@ -101,7 +101,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Recommended */}
+      {/* Рекомендоване */}
       <div className={styles.section}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTitle}>Рекомендовані оголошення</span>
@@ -130,7 +130,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* All listings */}
+      {/* Усі оголошення */}
       <div className={styles.section}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTitle}>Всі оголошення</span>
@@ -168,4 +168,3 @@ function IconBtn({ onClick, to, children, title }) {
     <button {...props}>{children}</button>
   )
 }
-
